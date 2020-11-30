@@ -1,0 +1,37 @@
+ <!-- How the article list will look on the home page
+    1. {{article.vote}} and {{article.title}} values come from the value of votes and title property in the Article Component class. We are gathering the values from the article defined in the article.component file 
+    2. {{article.link}}, the value of the href will be dynamically populated with the value of link from the component class.
+    3. Binding click events to the upvote and downvote functions
+
+ -->
+ 
+ <div class="four wide column center aligned votes">
+     <div class="ui statistic">
+         <div class="value">
+             {{ article.votes }}
+             </div>
+         <div class="label">
+             Points
+             </div>
+         </div>
+     </div>
+ <div class="twelve wide column">
+     <a class="ui large header" href="{{ article.link }}">
+         {{ article.title }}
+         </a>
+     <ul class="ui big horizontal list voters">
+         <li class="item">
+             <a href (click)="voteUp()">
+                 <i class="arrow up icon"></i>
+                 upvote
+                 </a>
+             </li>
+         <li class="item">
+             <a href (click)="voteDown()">
+                 <i class="arrow down icon"></i>
+                 downvote
+                 </a>
+             </li>
+         </ul>
+     </div>
+
