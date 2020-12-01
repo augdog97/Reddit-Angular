@@ -6,7 +6,8 @@
     3.  votes - a numer representing the sum of all upvotes, minus the downvotes.
         title - a string holding the title of the article.
         link - a string holding the URL of the article.
-
+    4. Moved the vote up and down logic to the model and used the domain utility. 
+        - We want the componets to be simple and do minimum work and the models to do the heavy lifting. 
 */
 
 export class Article {
@@ -18,5 +19,22 @@ export class Article {
         this.title = title;
         this.link = link;
         this.votes = votes || 0;
+    }
+    voteUp(): void {
+        this.votes += 1;
+    }
+    voteDown(): void {
+        this.votes -= 1;
+    }
+    // domain() is a utility function that extracts the domain from a URL.
+    domain(): string {
+        try {
+            // e.g http://foo.com/path/to/bar
+            const domainAndPath: string = this.link.split('//')[1];
+            // e.g foo.com/path/to/bar
+            return domainAndPath.split('/')[0];
+        } catch (error) {
+            return null;
+        }
     }
 }

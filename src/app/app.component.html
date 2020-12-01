@@ -7,7 +7,9 @@
   3. The Submit Button responds to a onclick event by running the addArticle function.
       - addArticle is a function on our component definition class AppComponent. 
       - newtitle comes from the resolve (#newtitle) on our input tag named title. 
-      - newlink comes from the resolve (#newlink) on our input tag named link. 
+      - newlink comes from the resolve (#newlink) on our input tag named link.
+  4. Creating multiple article components using the ngFor directive. 
+       - [inputName] = "inputValue". In this case we are saying to set the article input to the value of the local variable article set by ngfor.   
  -->
  <form class="ui large form segment">
    <h3 class="ui header">Add a Link</h3>
@@ -25,10 +27,12 @@
               class="ui positive right floated button">
        Submit link
      </button>
-     <div class="ui grid posts"> 
-       <article></article>
-     </div>
    </form>
+    <div class="ui grid posts">
+      <article *ngFor="let article of articles"
+                [article]="article">
+      </article>
+    </div>
 
 
 
