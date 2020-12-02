@@ -29,7 +29,7 @@
      </button>
    </form>
     <div class="ui grid posts">
-      <article *ngFor="let article of articles"
+      <article *ngFor="let article of sortedArticles()"
                 [article]="article">
       </article>
     </div>

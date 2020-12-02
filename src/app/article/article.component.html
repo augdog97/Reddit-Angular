@@ -2,6 +2,7 @@
     1. {{article.vote}} and {{article.title}} values come from the value of votes and title property in the Article Component class. We are gathering the values from the article defined in the article.component file 
     2. {{article.link}}, the value of the href will be dynamically populated with the value of link from the component class.
     3. Binding click events to the upvote and downvote functions
+    4. Adding a hint next to the link that shows the domain where the user will be redirected to when the link is clicked. (article.domain)
 
  -->
  
@@ -19,6 +20,9 @@
      <a class="ui large header" href="{{ article.link }}">
          {{ article.title }}
          </a>
+         <div class="meta">
+             ({{ article.domain() }})
+         </div>
      <ul class="ui big horizontal list voters">
          <li class="item">
              <a href (click)="voteUp()">
